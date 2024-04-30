@@ -39,20 +39,21 @@ The initial data preparation phase, we performed following tasks
 ``` SQL
 WITH Incremental_Sold_Quantity_CTE AS (
       SELECT
-          c.campaign_name as CampaignName 
-            ,p.category as Category
-						,SUM(f.[quantity_sold(before_promo)]) AS Quantity_Sold_before 
-						,SUM(f.[quantity_sold(after_promo)]) AS quantity_Sold_after
-						,SUM(f.[quantity_sold(after_promo)]-f.[quantity_sold(before_promo)]) AS Incremental_Sold_Quantity
-			  FROM [dbo].[fact_events] f
-			  INNER JOIN [dbo].[dim_products] p ON p.product_code = f.product_code 
-			  INNER JOIN [dbo].[dim_campaigns] c ON c.campaign_id = f.campaign_id
-			  WHERE c.campaign_name = 'Diwali'	  
-		  	  GROUP BY  p.category, c.campaign_name 
+            c.campaign_name as CampaignName 
+           ,p.category as Category
+           ,SUM(f.[quantity_sold(before_promo)]) AS Quantity_Sold_before 
+	   ,SUM(f.[quantity_sold(after_promo)]) AS quantity_Sold_after
+	   ,SUM(f.[quantity_sold(after_promo)]-f.[quantity_sold(before_promo)]) AS Incremental_Sold_Quantity
+   FROM [dbo].[fact_events] f
+   INNER JOIN [dbo].[dim_products] p ON p.product_code = f.product_code 
+   INNER JOIN [dbo].[dim_campaigns] c ON c.campaign_id = f.campaign_id
+   WHERE c.campaign_name = 'Diwali'	  
+   GROUP BY  p.category, c.campaign_name 
 )
-SELECT	Category
-	   ,FORMAT (Incremental_Sold_Quantity / Quantity_Sold_before, 'P') AS 'ISU%'
-	   ,RANK() OVER(ORDER BY Incremental_Sold_Quantity / Quantity_Sold_before) AS rank 
+SELECT
+      Category
+     ,FORMAT (Incremental_Sold_Quantity / Quantity_Sold_before, 'P') AS 'ISU%'
+     ,RANK() OVER(ORDER BY Incremental_Sold_Quantity / Quantity_Sold_before) AS rank 
 FROM Incremental_Sold_Quantity_CTE
 ORDER BY 3 DESC
 
