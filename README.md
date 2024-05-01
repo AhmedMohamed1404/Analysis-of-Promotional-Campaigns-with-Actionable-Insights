@@ -65,8 +65,6 @@ ORDER BY 3 DESC
 
 ```
 
-![image](https://github.com/AxmedGabtan/Analysis-of-Promotional-Campaigns-with-Actionable-Insights/assets/121066015/86a3de61-7b9e-4cbe-9009-fa94f560c8f0)
-
 
 
 ### Findings 
