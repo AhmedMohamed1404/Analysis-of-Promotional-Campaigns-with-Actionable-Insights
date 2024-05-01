@@ -4,13 +4,13 @@
 (Buy One Get One Free). This information will help us identify high-value products that are currently being heavily
 discounted, which can be useful for evaluating our pricing and promotion strategies */ 
 
-select	 p.[product_name] 
+SELECT   p.[product_name] 
 		,FORMAT(f.base_price, 'C', 'en-in') Base_Price 
 		,f.promo_type as Promo_Type 
-from [dbo].[dim_products] p 
-inner join [dbo].[fact_events] f on p.product_code  = f.product_code
-where f.base_price > 500 and f.promo_type = 'BOGOF' 
-order by 2 desc 
+FROM	[dbo].[dim_products] p 
+INNER JOIN [dbo].[fact_events] f on p.product_code  = f.product_code
+WHERE f.base_price > 500 and f.promo_type = 'BOGOF' 
+ORDER BY 2 DESC
 
 /* Generate a report that provides an overview of the number of stores in each city. 
 The results will be sorted in descending order of store counts, allowing us to identify the cities with 
@@ -18,7 +18,7 @@ the highest store presence. The report includes two essential fields: city and s
 which will assist in optimizing our retail operations.
  */ 
 
- SELECT city, COUNT(distinct store_id) as Store_CNT 
+ SELECT city, COUNT(distinct store_id) AS Store_CNT 
  FROM [dbo].[dim_stores]
  GROUP BY city 
  ORDER BY Store_CNT DESC 
