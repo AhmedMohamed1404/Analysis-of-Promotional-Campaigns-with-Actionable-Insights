@@ -12,7 +12,7 @@
 - [Recommandations](recommandations)
 
 ### Project Overview: -
-The project aims to evaluate the effectiveness of promotions conducted by ATLIQ Mart, a prominent retail chain operating over 50 supermarkets in southern India. Its primary objectives include assessing promotion performance, providing actionable recommendations, and ensuring that promotional strategies align with organizational objectives.
+The project aims to evaluate the effectiveness of promotions conducted by ATLIQ Mart, a prominent retail chain operating over 50 supermarkets in southern India. Its primary objectives include assessing promotion performance, providing actionable recommendations, and ensuring that promotional strategies align with organiSational objectives.
 
 ![image](https://github.com/AxmedGabtan/Analysis-of-Promotional-Campaigns-with-Actionable-Insights/assets/121066015/79bdc716-76e1-42a6-81e7-fd4c9fa21116)
 
@@ -35,7 +35,7 @@ The initial data preparation phase, we performed following tasks
 4. Data Documentation Review: Review metadata to grasp dataset structure, meaning, and potential quality issues prior to cleaning
 
 ### Exploratory Data Analysis
-EDA utilized promotional data to investigate some of these inquiries.
+EDA utiliSed promotional data to investigate some of these inquiries.
 
 - Which are the top 10 stores in terms of Incremental Revenue (IR) generated from the promotions?
 - Is there a significant difference in the performance of discount-based promotions versus BOGOF (Buy One Get One Free) or cashback promotions?
